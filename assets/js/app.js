@@ -3,34 +3,32 @@ const app = new Vue({
     el: '#app',
     // dati contenuti
     data: {
-        // Creo le mail
-        emails: null
+        // Creo un array di Mail
+        randomEmails: []
     },
     // Metodi Contenuti
-    methods: {},
-    mounted() {
+    methods: {
+        cicleEmail() {
+            // aggiriamo l'impossibilità del mounted di risalire al this
+            const self = this
+            // Chiamata Axios
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                // avvio la function anonima con argomento
+                .then(response => {
+                    if (!this.randomEmails.includes(response.data.response)) {
+                        this.randomEmails.push(response.data.response)
+                    } else {
+                        return
+                    }
+                })
+        },
+    },
 
-        // aggiriamo l'impossibilità del mounted di risalire al this
-        const self = this
-        // Chiamata Axios
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-            // avvio la function anonima con argomento
-            .then(function (response) {
-                // verifico la costante
-                console.log("Questo invece è il console log di Self, con function anonima");
-                console.log(self);
-                console.log("_________");
-                // verifico l'argomento response
-                console.log("Questo invece è il console log di Response");
-                console.log(response);
-                console.log("_________");
-                // Ora applico il parametro con this
-                self.emails = response.data.response
-                // Guardo in Console
-                console.log("Questo è il console log user_number");
-                console.log(this.emails); // vedo una mail random a ogni check
-                console.log("_________");
-            })
+    mounted() {
+        // ciclo con un for 10 volte dentro l'array random il method creato
+        for (let i = this.randomEmails.length; i < 10; i++) {
+            this.cicleEmail()
+        }
 
     },
 

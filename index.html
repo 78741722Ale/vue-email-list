@@ -28,8 +28,9 @@
     <!-- Link a div con ID Principale -->
     <div id='app'>
         <h1>Vue-Email-List</h1>
+        <!-- lista non ordinata di email -->
         <ul>
-            <li v-if="emails" class="unstyled"> il contatto mail è: {{emails}} </li>
+            <li v-for="email in randomEmails" v-if="randomEmails" class="unstyled"> il contatto mail è: {{email}} </li>
         </ul>
     </div>
 
