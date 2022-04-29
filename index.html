@@ -8,12 +8,29 @@
     <!-- Link a CDN di Axios -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js' integrity='sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
 </head>
+
+<!-- Style per non creare CSS -->
+<style>
+
+/* Lista non ordinata, stile */
+.unstyled {
+    list-style: none;
+    line-height: 1.5rem;
+    padding: 1rem;
+}
+
+</style>
+
+
 <body>
     
 
     <!-- Link a div con ID Principale -->
     <div id='app'>
         <h1>Vue-Email-List</h1>
+        <ul>
+            <li v-if="emails" class="unstyled"> il contatto mail è: {{emails}} </li>
+        </ul>
     </div>
 
     <!-- Link a Vue -->
