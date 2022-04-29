@@ -17,6 +17,12 @@
     list-style: none;
     line-height: 1.5rem;
     padding: 1rem;
+    color: purple;
+}
+
+/* Stile alla mail */
+strong {
+    color: blue;
 }
 
 </style>
@@ -30,7 +36,7 @@
         <h1>Vue-Email-List</h1>
         <!-- lista non ordinata di email -->
         <ul>
-            <li v-for="email in randomEmails" v-if="randomEmails" class="unstyled"> il contatto mail è: {{email}} </li>
+            <li v-for="email in randomEmails" v-if="randomEmails" class="unstyled"> il contatto mail è: <strong>{{email}}</strong> </li>
         </ul>
     </div>
 
