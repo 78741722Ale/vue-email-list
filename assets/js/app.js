@@ -9,8 +9,6 @@ const app = new Vue({
     // Metodi Contenuti
     methods: {
         cicleEmail() {
-            // aggiriamo l'impossibilità del mounted di risalire al this
-            const self = this
             // Chiamata Axios
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 // avvio la function anonima con argomento
